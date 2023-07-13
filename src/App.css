@@ -1,0 +1,10 @@
+.title {
+  text-align: center;
+}
+.item-row {
+  display: flex;
+  justify-content: space-between;
+}
+.item-delete {
+  cursor: pointer;
+}
