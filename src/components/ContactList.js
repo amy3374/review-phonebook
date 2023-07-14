@@ -5,24 +5,22 @@ import { useSelector } from "react-redux";
 
 const ContactList = () => {
   const { contactList, keyword } = useSelector((state) => state);
-  const [filterList, setFilterList] = useState([]);
+  const [filteredList, setFilteredList] = useState([]);
   useEffect(() => {
     if (keyword !== "") {
       let list = contactList.filter((item) => item.name.includes(keyword));
-      setFilterList(list);
+      setFilteredList(list);
     } else {
-      setFilterList(contactList);
+      setFilteredList(contactList);
     }
   }, [contactList, keyword]);
   return (
-    <div>
+    <div className="contact-list">
       <SearchBox />
-      <div>
-        <span>num:{filterList.length}</span>
-        {filterList.map((item) => (
-          <ContactItem id={item.id} item={item} />
-        ))}
-      </div>
+      <div className="num-count">num : {filteredList.length} </div>
+      {filteredList.map((item) => (
+        <ContactItem key={item.id} item={item} />
+      ))}
     </div>
   );
 };

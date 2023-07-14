@@ -18,15 +18,16 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         contactList: [
-          ...state.contactList.filter((item) => item.id !== payload.id),
+          ...state.contactList.filter((item) => item.key !== payload.key),
         ],
       };
     case "SEARCH_NAME":
       state.keyword = payload.keyword;
 
     default:
-      return { ...state };
+      return {
+        ...state,
+      };
   }
 }
-
 export default reducer;

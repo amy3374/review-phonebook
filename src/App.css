@@ -1,10 +1,17 @@
 .title {
   text-align: center;
 }
-.item-row {
+.contact-list {
+  margin-top: 20px;
+}
+.num-count {
+  margin: 15px;
+}
+.item-info {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
-.item-delete {
+.delete-btn {
   cursor: pointer;
 }

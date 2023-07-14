@@ -3,14 +3,15 @@ import { Button, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 
 const ContactForm = () => {
-  const [name, setName] = useState("");
-  const [number, setNumber] = useState(0);
+  const [name, setName] = useState();
+  const [number, setNumber] = useState();
   const dispatch = useDispatch();
   const contactId = useRef(0);
+
   const addContact = (e) => {
     const id = contactId.current;
     e.preventDefault();
-    console.log("id", id);
+    console.log(name, number, id);
     dispatch({ type: "ADD_CONTACT", payload: { name, number, id } });
     contactId.current += 1;
     setName("");
@@ -29,7 +30,7 @@ const ContactForm = () => {
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formContact">
-        <Form.Label>연락처</Form.Label>
+        <Form.Label>전화번호</Form.Label>
         <Form.Control
           type="number"
           placeholder="전화번호를 입력해주세요"
